@@ -1,0 +1,32 @@
+meta {
+  name: Topup Wallet
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/v1/wallet/topup
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "assetSymbol": "GOLD_COINS",
+    "amount": 100,
+    "idempotencyKey": "topup-{{$timestamp}}",
+    "metadata": {
+      "paymentMethod": "credit_card",
+      "orderId": "ORDER-123"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

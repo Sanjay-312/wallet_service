@@ -1,0 +1,15 @@
+meta {
+  name: Get All Balances
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base_url}}/api/v1/wallet/balances/550e8400-e29b-41d4-a716-446655440000
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

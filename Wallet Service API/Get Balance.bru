@@ -1,0 +1,15 @@
+meta {
+  name: Get Balance
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base_url}}/api/v1/wallet/balance/550e8400-e29b-41d4-a716-446655440000/GOLD_COINS
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

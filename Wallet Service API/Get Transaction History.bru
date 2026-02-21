@@ -1,0 +1,20 @@
+meta {
+  name: Get Transaction History
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{base_url}}/api/v1/wallet/transactions/550e8400-e29b-41d4-a716-446655440000?limit=50&offset=0
+  body: none
+  auth: inherit
+}
+
+params:query {
+  limit: 50
+  offset: 0
+}
+
+settings {
+  encodeUrl: true
+}

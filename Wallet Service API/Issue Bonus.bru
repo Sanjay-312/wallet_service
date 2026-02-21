@@ -1,0 +1,29 @@
+meta {
+  name: Issue Bonus
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/v1/wallet/bonus
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "assetSymbol": "LOYALTY_POINTS",
+    "amount": 500,
+    "idempotencyKey": "bonus-{{$timestamp}}",
+    "reason": "Referral program reward"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
