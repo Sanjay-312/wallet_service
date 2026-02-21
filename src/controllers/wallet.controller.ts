@@ -8,7 +8,7 @@ import {
   GetBalanceDto,
 } from '../dtos/wallet.dto';
 
-@Controller('api/v1/wallet')
+@Controller('wallet')
 export class WalletController {
   constructor(
     private readonly ledgerService: LedgerService,

@@ -2,16 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bull';
-import { WalletController } from './controllers/wallet.controller';
-import { HealthController } from './controllers/health.controller';
-import { WalletService } from './services/wallet.service';
-import { LedgerService } from './services/ledger.service';
 import { typeormConfig } from './config/typeorm.config';
-import { User } from './entities/user.entity';
-import { AssetType } from './entities/asset-type.entity';
-import { Balance } from './entities/balance.entity';
-import { Ledger } from './entities/ledger.entity';
-import { Transaction } from './entities/transaction.entity';
+import { AppController } from './app.controller';
+import { WalletModule } from './modules/wallet.module';
+import { UserModule } from './modules/user.module';
 
 @Module({
   imports: [
@@ -24,7 +18,6 @@ import { Transaction } from './entities/transaction.entity';
       inject: [ConfigService],
       useFactory: () => typeormConfig(),
     }),
-    TypeOrmModule.forFeature([User, AssetType, Balance, Ledger, Transaction]),
     BullModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -35,8 +28,10 @@ import { Transaction } from './entities/transaction.entity';
         },
       }),
     }),
+    WalletModule,
+    UserModule
   ],
-  controllers: [WalletController, HealthController],
-  providers: [WalletService, LedgerService],
+  controllers: [AppController],
+  providers: [],
 })
 export class AppModule {}

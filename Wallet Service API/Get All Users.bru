@@ -1,11 +1,11 @@
 meta {
-  name: Health Check
+  name: Get All Users
   type: http
-  seq: 1
+  seq: 9
 }
 
 get {
-  url: {{base_url}}/api/v1/health
+  url: {{base_url}}/api/v1/users
   body: none
   auth: inherit
 }
