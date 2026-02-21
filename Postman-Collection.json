@@ -147,12 +147,24 @@
           ]
         }
       }
+    },
+     {
+      "name": "Get All Users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/users",
+          "host": ["{{base_url}}"],
+          "path": ["api", "v1", "users"]
+        }
+      }
     }
   ],
   "variable": [
     {
       "key": "base_url",
-      "value": "http://localhost:3000",
+      "value": "https://wallet-service-f5g9.onrender.com",
       "type": "string"
     }
   ]
